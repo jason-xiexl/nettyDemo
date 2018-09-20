@@ -1,4 +1,4 @@
-package com.xiexl.netty.demo.time;
+package com.xiexl.netty.demo.dealing;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class TimeClientHandler extends ChannelInboundHandlerAdapter {
 
-
+    
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

@@ -1,4 +1,4 @@
-package com.xiexl.netty.demo.time;
+package com.xiexl.netty.demo.pojo;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -14,17 +14,16 @@ public class TimeClient {
   public static void main(String[] args) {
     //
 
-      for (int i = 0; i < 100; i++) {
-          new Runnable() {
-              @Override
-              public void run() {
-                  startClient();
-              }
-          }.run();
-      }
+//      for (int i = 0; i < 100; i++) {
+//          new Runnable() {
+//              @Override
+//              public void run() {
+//                  startClient();
+//              }
+//          }.run();
+//      }
 
-
-
+      startClient();
   }
 
     private static void startClient() {
@@ -37,7 +36,7 @@ public class TimeClient {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new TimeClientHandler());
+                        ch.pipeline().addLast(new TimeDecoder(), new TimeClientHandler());
                     }
                 });
         try {
